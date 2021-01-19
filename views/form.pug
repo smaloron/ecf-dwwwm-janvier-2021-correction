@@ -1,0 +1,33 @@
+extends layout.pug
+
+block content
+    h1 Nouveau concert
+    datalist(id="bands")
+        each band in bandList
+            option= band
+    datalist(id="locations")
+        each location in locationList
+            option= location
+    div
+        form(method="post")
+            div(class="row")
+                div(class="form-group col-md-6")
+                    label Date
+                    input(type="date" name="performanceDate" class="form-control")
+                div(class="form-group col-md-6")
+                    label Salle de concert
+                    input(type="text" name="location" list="locations" class="form-control")
+            div(class="row")
+                div(class="form-group col-md-6") 
+                    label Groupe
+                    input(type="text" name="bandName" list="bands" class="form-control")
+                div(class="form-group col-md-6")
+                    label Note
+                    //input( type="range" min=0 max=5 name="rating" value="0" 
+                    select(name="rating" class="form-control")
+                        option 1
+                        option 2
+                        option 3
+                        option 4
+                        option 5
+            button(type="submit" class="btn btn-primary btn-block") Valider

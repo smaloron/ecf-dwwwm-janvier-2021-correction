@@ -1,0 +1,24 @@
+extends layout.pug
+
+block content
+    a(href="/") Retour
+    h1 Statistiques
+    div(class="row")
+        div(class="col-md-6")
+            table(class="table table-striped")
+                tr
+                    th Groupe
+                    th Moyenne
+                each item in bandStats
+                    tr
+                        td= item._id
+                        td= item.averageRating
+        div(class="col-md-6")
+            table(class="table table-striped")
+                tr
+                    th Salle
+                    th Moyenne
+                each item in locationStats
+                    tr
+                        td= item._id
+                        td= item.averageRating

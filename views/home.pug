@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+    div(class="row")
+        h1(class="col-md-6") liste des concerts
+        div(class="col-md-6 text-right")
+            a(href="/form" class="btn btn-primary") Nouveau concert
+    table(class="table table-bordered table-striped")
+        tr
+            th Date
+            th Groupe
+            th Salle
+            th Note
+            th Action
+        each concert in concertList
+            tr
+                td= concert.performanceDate.toDateString()
+                td= concert.bandName
+                td= concert.location
+                td= concert.rating
+                td
+                    a(href='/delete/'+ concert._id
+                    class="btn btn-danger btn-block") supprimer
